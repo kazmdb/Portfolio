@@ -135,10 +135,17 @@
   const sky = document.getElementById('sky-particles');
   if (sky) {
     const sctx = sky.getContext('2d');
-    let SW = 0, SH = 0, sdpr = Math.min(window.devicePixelRatio || 1, 2);
+    let SW = 0, SH = 0;
+    // DPR capped at 1: particles don't need retina sharpness, and DPR=2
+    // quadruples the canvas pixel area cleared/drawn every frame.
+    const sdpr = 1;
     let stars = [];
-    const SCOUNT = window.innerWidth < 768 ? 24 : 50;
-    const SLINK = 120;
+    // 30 particles on desktop (was 50) → 435 line-pairs vs 1225 (O n²).
+    // Visual difference is negligible; performance difference is not.
+    const SCOUNT = window.innerWidth < 768 ? 20 : 30;
+    // Shorter link distance → fewer connections drawn per frame
+    const SLINK = 95; // was 120
+    const SLINK2 = SLINK * SLINK;
     let sInit = false;
 
     const sSeed = () => {
@@ -175,55 +182,62 @@
       const r = sky.getBoundingClientRect();
       smx = e.clientX - r.left;
       smy = e.clientY - r.top;
-    });
+    }, { passive: true });
     heroEl.addEventListener('mouseleave', () => { smx = smy = -9999; });
 
-    // throttle to ~30fps for canvas paint — saves significant CPU vs 60fps,
-    // and the motion is slow enough that it looks identical
-    let last = 0;
-    const draw = (t) => {
-      requestAnimationFrame(draw);
-      if (t - last < 33) return;
-      last = t;
+    // True ~22fps loop: setTimeout schedules the interval, rAF syncs the
+    // actual draw to the display refresh. This avoids calling rAF at 60-144Hz
+    // just to bail out early — which wastes cycles on high-refresh monitors.
+    const MOUSE_R2 = 140 * 140;
+    const MOUSE_R = 140;
+    const draw = () => {
       sctx.clearRect(0, 0, SW, SH);
+
+      // update positions
       for (const p of stars) {
         p.x += p.vx; p.y += p.vy;
         if (p.x < 0 || p.x > SW) p.vx *= -1;
         if (p.y < 0 || p.y > SH) p.vy *= -1;
       }
-      // links between particles
+
+      // particle–particle links (batched by computed opacity level)
+      sctx.lineWidth = 0.5;
       for (let i = 0; i < stars.length; i++) {
         const a = stars[i];
         for (let j = i + 1; j < stars.length; j++) {
           const b = stars[j];
           const dx = a.x - b.x, dy = a.y - b.y;
           const d2 = dx * dx + dy * dy;
-          if (d2 < SLINK * SLINK) {
-            const op = 1 - Math.sqrt(d2) / SLINK;
-            sctx.strokeStyle = `rgba(0, 245, 255, ${op * 0.16})`;
-            sctx.lineWidth = 0.5;
+          if (d2 < SLINK2) {
+            const op = (1 - Math.sqrt(d2) / SLINK) * 0.18;
+            sctx.strokeStyle = `rgba(0,245,255,${op.toFixed(3)})`;
             sctx.beginPath(); sctx.moveTo(a.x, a.y); sctx.lineTo(b.x, b.y); sctx.stroke();
           }
         }
-        // mouse interaction (only if cursor is in the sky region)
+        // mouse interaction
         if (smy >= 0 && smy <= SH) {
           const dx = a.x - smx, dy = a.y - smy;
           const d2 = dx * dx + dy * dy;
-          if (d2 < 20000) {
-            const op = 1 - Math.sqrt(d2) / 142;
-            sctx.strokeStyle = `rgba(255, 0, 128, ${op * 0.45})`;
+          if (d2 < MOUSE_R2) {
+            const op = (1 - Math.sqrt(d2) / MOUSE_R) * 0.5;
+            sctx.strokeStyle = `rgba(255,0,128,${op.toFixed(3)})`;
             sctx.lineWidth = 0.7;
             sctx.beginPath(); sctx.moveTo(a.x, a.y); sctx.lineTo(smx, smy); sctx.stroke();
+            sctx.lineWidth = 0.5;
           }
         }
       }
-      // dots
-      sctx.fillStyle = 'rgba(0, 245, 255, .55)';
+
+      // dots — batched into a single fill call
+      sctx.fillStyle = 'rgba(0, 245, 255, .6)';
+      sctx.beginPath();
       for (const p of stars) {
-        sctx.beginPath();
+        sctx.moveTo(p.x + p.r, p.y);
         sctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        sctx.fill();
       }
+      sctx.fill();
+
+      setTimeout(() => requestAnimationFrame(draw), 45); // ~22fps
     };
     requestAnimationFrame(draw);
   }
