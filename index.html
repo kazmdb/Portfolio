@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bruno Rodriguez — Fullstack Developer</title>
+<meta name="description" content="Portfolio de Bruno Rodriguez — desarrollador web fullstack. Proyectos, stack tecnológico y contacto.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor-ring" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+
+<!-- ============== NAVBAR ============== -->
+<nav class="nav" aria-label="Principal">
+  <a href="#top" class="nav-brand" aria-label="Inicio">
+    <span class="bracket">[</span>
+    <span class="glitch" data-text="brunorodriguez.dev">brunorodriguez.dev</span>
+    <span class="bracket">]</span>
+  </a>
+  <ul class="nav-links" role="list">
+    <li><a href="#top"><span class="idx">01</span> Inicio</a></li>
+    <li><a href="#about"><span class="idx">02</span> Sobre mí</a></li>
+    <li><a href="#work"><span class="idx">03</span> Proyectos</a></li>
+    <li><a href="#stack"><span class="idx">04</span> Stack</a></li>
+    <li><a href="#contact"><span class="idx">05</span> Contacto</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Disponible para proyectos</a>
+  <button class="nav-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+    <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+  </button>
+</nav>
+
+<!-- ============== MOBILE MENU ============== -->
+<div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+  <div class="mm-inner">
+    <div class="mm-head">
+      <span class="mm-tag">// NAVIGATION</span>
+      <button class="mm-close" aria-label="Cerrar menú">
+        <span></span><span></span>
+      </button>
+    </div>
+    <ul class="mm-links" role="list">
+      <li><a href="#top"><span class="idx">01</span><span class="lbl">Inicio</span><span class="arr">↗</span></a></li>
+      <li><a href="#about"><span class="idx">02</span><span class="lbl">Sobre mí</span><span class="arr">↗</span></a></li>
+      <li><a href="#work"><span class="idx">03</span><span class="lbl">Proyectos</span><span class="arr">↗</span></a></li>
+      <li><a href="#stack"><span class="idx">04</span><span class="lbl">Stack</span><span class="arr">↗</span></a></li>
+      <li><a href="#contact"><span class="idx">05</span><span class="lbl">Contacto</span><span class="arr">↗</span></a></li>
+    </ul>
+    <div class="mm-foot">
+      <span class="mm-status"><span class="mm-dot"></span> Disponible para proyectos</span>
+      <a href="#contact" class="mm-cta">Contáctame →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============== HERO ============== -->
+<header id="top" class="hero">
+  <div class="hero-stage" aria-hidden="true">
+    <canvas id="sky-particles" class="sky-canvas"></canvas>
+    <div class="grid-floor"></div>
+    <div class="horizon-line"></div>
+    <div class="horizon-haze"></div>
+    <div class="sky-glow"></div>
+    <div class="grid-dots">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="hero-spot" aria-hidden="true"></div>
+
+  <!-- Top ribbon: full-width HUD strip -->
+  <div class="hero-ribbon reveal">
+    <span class="hr-cell"><span class="dot">●</span> PORTFOLIO / V.2026.05</span>
+    <span class="hr-cell hr-mid" data-clock>—</span>
+    <span class="hr-cell hr-right">MONTEVIDEO · -34.90 / -56.16</span>
+  </div>
+
+  <!-- Left rail: rotated meta text -->
+  <aside class="hero-rail hero-rail-l" aria-hidden="true">
+    <span class="rail-line"></span>
+    <span class="rail-text">SECTION&nbsp;/&nbsp;01_INDEX</span>
+    <span class="rail-line"></span>
+  </aside>
+
+  <!-- Right rail: scroll affordance + social shortcuts -->
+  <aside class="hero-rail hero-rail-r" aria-hidden="true">
+    <span class="rail-line"></span>
+    <span class="rail-text rail-blink">SCROLL&nbsp;TO&nbsp;EXPLORE</span>
+    <span class="rail-line"></span>
+  </aside>
+
+  <div class="wrap hero-wrap">
+    <div class="hero-content">
+      <span class="kicker reveal"><span class="k-num">00</span> Fullstack Engineer — Montevideo, UY</span>
+
+      <h1 class="hero-name">
+        <span class="line reveal" data-delay="1"><span class="holo">BRUNO</span></span>
+        <span class="line reveal" data-delay="2"><span class="glitch-name" data-text="RODRIGUEZ">RODRIGUEZ</span><span class="holo" style="color: var(--cyan); background-position: center top">_</span></span>
+      </h1>
+
+      <p class="hero-typer reveal" data-delay="3" aria-live="polite">
+        <span class="prompt">~/</span><span>I build</span>
+        <span class="role">Fullstack Developer</span>
+        <span class="caret" aria-hidden="true"></span>
+      </p>
+
+      <div class="hero-bio-block reveal" data-delay="4">
+        <span class="hbb-rail"></span>
+        <p class="hero-bio">
+          <span class="h">// </span>Diseño y construyo productos web rápidos, accesibles y con personalidad.
+          Frontend con React + arquitectura backend con Node. Obsesionado con la performance, los micro-detalles y el código que envejece bien.
+        </p>
+      </div>
+
+      <div class="hero-actions reveal" data-delay="4">
+        <a href="#work" class="btn primary">
+          <span>Ver mis proyectos</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="#contact" class="btn ghost">
+          <span>Contáctame</span>
+          <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HUD bar — sits ON the horizon line, edge-to-edge -->
+  <div class="hero-hud reveal" data-delay="4">
+    <div class="hud-inner">
+      <div class="hud-cell">
+        <span class="hud-k">Proyectos</span>
+        <span class="hud-v"><b data-count="24">12</b><span class="hud-plus">+</span></span>
+      </div>
+      <div class="hud-cell">
+        <span class="hud-k">Años de exp.</span>
+        <span class="hud-v"><b data-count="5">2</b></span>
+      </div>
+      <div class="hud-cell">
+        <span class="hud-k">Stack principal</span>
+        <span class="hud-v hud-v-text">React · Node</span>
+      </div>
+      <div class="hud-cell">
+        <span class="hud-k">Status</span>
+        <span class="hud-v hud-v-status">● Disponible</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============== ABOUT ============== -->
+<section id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="kicker"><span class="k-num">02</span> Sobre mí</span>
+        <h2 id="about-title" class="section-title">Construyo cosas <em>en la web</em>.</h2>
+      </div>
+      <span class="meta">FILE: <b>about.md</b> · LAST MODIFIED 2026-05-23</span>
+    </div>
+
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="avatar-wrap">
+          <div class="avatar">
+            <img class="avatar-img" src="yo.jpeg" alt="Bruno Rodriguez">
+            <div class="grid-pattern" aria-hidden="true"></div>
+            <div class="avatar-scan" aria-hidden="true"></div>
+          </div>
+          <span class="avatar-tag">// HUMAN.exe</span>
+        </div>
+      </div>
+
+      <div class="about-text reveal" data-delay="1">
+        <p>Soy Bruno Rodriguez, desarrollador fullstack con base en Uruguay. Convierto interfaces complejas en experiencias claras y rápidas — desde la arquitectura del backend hasta el último píxel del UI.</p>
+        <p>Trabajo en la intersección entre ingeniería y diseño. Mis proyectos favoritos son los que combinan visualización de datos, animaciones útiles y código que cualquier compañero pueda mantener seis meses después.</p>
+        <p>Fuera de la pantalla: café de especialidad, sintetizadores modulares y largas caminatas urbanas para resolver bugs mentalmente.</p>
+
+        <dl class="about-meta">
+          <div><dt>Rol</dt><dd>Fullstack Developer</dd></div>
+          <div><dt>Experiencia</dt><dd>2 años · Freelance + producto</dd></div>
+          <div><dt>Ubicación</dt><dd>Montevideo, Uruguay</dd></div>
+          <div><dt>Idiomas</dt><dd>Español · English</dd></div>
+        </dl>
+
+        <div class="skills" aria-label="Stack por nivel de dominio">
+          <div class="skill-group">
+            <div class="sg-head">
+              <span class="sg-num">01</span>
+              <span class="sg-title">Daily driver</span>
+              <span class="sg-meta">Lo que uso todos los días</span>
+            </div>
+            <div class="sg-tags">
+              <span class="sg-tag">HTML</span>
+              <span class="sg-tag">CSS</span>
+              <span class="sg-tag">JavaScript</span>
+              <span class="sg-tag">React</span>
+              <span class="sg-tag">Git</span>
+              <span class="sg-tag">Firebase</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="sg-head">
+              <span class="sg-num">02</span>
+              <span class="sg-title">Comfortable</span>
+              <span class="sg-meta">Productivo en proyectos reales</span>
+            </div>
+            <div class="sg-tags">
+              <span class="sg-tag">Node.js</span>
+              <span class="sg-tag">Express</span>
+              <span class="sg-tag">Supabase</span>
+              <span class="sg-tag">SQL</span>
+              <span class="sg-tag">Vercel</span>
+              <span class="sg-tag">REST APIs</span>
+              <span class="sg-tag">Figma</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="sg-head">
+              <span class="sg-num">03</span>
+              <span class="sg-title">Familiar</span>
+              <span class="sg-meta">Aprendiendo / uso ocasional</span>
+            </div>
+            <div class="sg-tags">
+              <span class="sg-tag">TypeScript</span>
+              <span class="sg-tag">Next.js</span>
+              <span class="sg-tag">MongoDB</span>
+              <span class="sg-tag">Docker</span>
+              <span class="sg-tag">Three.js</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROJECTS ============== -->
+<section id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="kicker"><span class="k-num">03</span> Selección de proyectos</span>
+        <h2 id="work-title" class="section-title">Trabajo <em>reciente</em>.</h2>
+      </div>
+      <span class="meta">SHOWING <b>04</b> / 12</span>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Proyecto 1 — Pastelería -->
+      <article class="project-card p1 reveal" data-delay="1">
+        <div class="pc-head"><span class="id">// PROJECT_001</span><span>E-COMMERCE</span></div>
+        <a class="pc-visual" href="https://lapasteleria.online" target="_blank" rel="noopener" aria-label="Abrir La Pastelería">
+          <div class="browser-bar"><i></i><i></i><i></i><span class="url">lapasteleria.online</span></div>
+          <img class="pc-shot" src="img/lapasteleria.png" alt="Captura de La Pastelería" loading="lazy">
+        </a>
+        <h3 class="pc-title"><a href="https://lapasteleria.online" target="_blank" rel="noopener">La Pastelería</a> <a href="https://lapasteleria.online" target="_blank" rel="noopener" class="arrow-link" aria-label="Abrir sitio">↗</a></h3>
+        <p class="pc-desc">Tienda online para pastelería artesanal. Catálogo en tiempo real, checkout integrado y panel de administración.</p>
+        <div class="pc-stack">
+          <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Firebase</span><span class="chip">Firestore</span><span class="chip">UltraMsg</span>
+        </div>
+      </article>
+
+      <!-- Proyecto 2 — Ferretería -->
+      <article class="project-card p2 reveal" data-delay="2">
+        <div class="pc-head"><span class="id">// PROJECT_002</span><span>CATÁLOGO B2B</span></div>
+        <a class="pc-visual" href="https://ferreteriamp.vercel.app" target="_blank" rel="noopener" aria-label="Abrir Ferretería MP">
+          <div class="browser-bar"><i></i><i></i><i></i><span class="url">ferreteriamp.vercel.app</span></div>
+          <img class="pc-shot" src="img/ferreteriamp.png" alt="Captura de Ferretería MP" loading="lazy">
+        </a>
+        <h3 class="pc-title"><a href="https://ferreteriamp.vercel.app" target="_blank" rel="noopener">Ferretería MP</a> <a href="https://ferreteriamp.vercel.app" target="_blank" rel="noopener" class="arrow-link" aria-label="Abrir sitio">↗</a></h3>
+        <p class="pc-desc">Catálogo digital con +5.000 productos. Búsqueda inteligente, filtros multinivel y gestión de inventario.</p>
+        <div class="pc-stack">
+          <span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">ES6+</span><span class="chip">Firebase</span>
+        </div>
+      </article>
+
+      <!-- Proyecto 3 — Peluquería -->
+      <article class="project-card p3 reveal" data-delay="3">
+        <div class="pc-head"><span class="id">// PROJECT_003</span><span>BOOKING APP</span></div>
+        <a class="pc-visual" href="https://martinferreirapeluqueria.com/" target="_blank" rel="noopener" aria-label="Abrir Peluquería Martín Ferreira">
+          <div class="browser-bar"><i></i><i></i><i></i><span class="url">martinferreirapeluqueria.com</span></div>
+          <img class="pc-shot" src="img/peluqueriamartinferreira.png" alt="Captura de Peluquería Martín Ferreira" loading="lazy">
+        </a>
+        <h3 class="pc-title"><a href="https://martinferreirapeluqueria.com/" target="_blank" rel="noopener">Peluquería Martín Ferreira</a> <a href="https://martinferreirapeluqueria.com/" target="_blank" rel="noopener" class="arrow-link" aria-label="Abrir sitio">↗</a></h3>
+        <p class="pc-desc">Sistema de reservas online con calendario por estilista, recordatorios automáticos y panel de clientes.</p>
+        <div class="pc-stack">
+          <span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JAVASCRIPT</span><span class="chip">Node.js</span><span class="chip">Firebase</span>
+        </div>
+      </article>
+
+      <!-- Proyecto 4 — Tienda Electrónica -->
+      <article class="project-card p4 reveal" data-delay="4">
+        <div class="pc-head"><span class="id">// PROJECT_004</span><span>STOREFRONT</span></div>
+        <a class="pc-visual" href="https://nuevapage.vercel.app" target="_blank" rel="noopener" aria-label="Abrir Magic Cell">
+          <div class="browser-bar"><i></i><i></i><i></i><span class="url">nuevapage.vercel.app</span></div>
+          <img class="pc-shot" src="img/magicell.png" alt="Captura de Magic Cell" loading="lazy">
+        </a>
+        <h3 class="pc-title"><a href="https://nuevapage.vercel.app" target="_blank" rel="noopener">Magic Cell</a> <a href="https://nuevapage.vercel.app" target="_blank" rel="noopener" class="arrow-link" aria-label="Abrir sitio">↗</a></h3>
+        <p class="pc-desc">Tienda de electrónica con estilo popup arcade, reviews integradas y checkout. Mobile-first.</p>
+        <div class="pc-stack">
+          <span class="chip">React 18</span><span class="chip">JSX</span><span class="chip">Node.js</span><span class="chip">Supabase</span><span class="chip">SQL</span><span class="chip">MercadoPago</span><span class="chip">Vercel</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============== STACK ============== -->
+<section id="stack" class="stack" aria-labelledby="stack-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="kicker"><span class="k-num">04</span> Toolkit</span>
+        <h2 id="stack-title" class="section-title">Stack <em>tecnológico</em>.</h2>
+      </div>
+      <span class="meta">12 TECNOLOGÍAS · UPDATED 2026-Q2</span>
+    </div>
+
+    <div class="stack-grid reveal">
+      <div class="stack-item c-orange"><span class="ico">&lt;/&gt;</span><span class="label">HTML5</span><span class="tooltip">Markup semántico</span></div>
+      <div class="stack-item c-blue"><span class="ico">#</span><span class="label">CSS3</span><span class="tooltip">Grid · Flex · Animations</span></div>
+      <div class="stack-item c-yellow"><span class="ico">JS</span><span class="label">JavaScript</span><span class="tooltip">ES6+ · TypeScript</span></div>
+      <div class="stack-item c-cyan"><span class="ico">⚛</span><span class="label">React</span><span class="tooltip">Hooks · SSR · Next.js</span></div>
+      <div class="stack-item c-green"><span class="ico">N</span><span class="label">Node.js</span><span class="tooltip">Runtime backend</span></div>
+      <div class="stack-item c-graygreen"><span class="ico">Ex</span><span class="label">Express</span><span class="tooltip">REST APIs</span></div>
+      <div class="stack-item c-leaf"><span class="ico">M</span><span class="label">MongoDB</span><span class="tooltip">NoSQL · Mongoose</span></div>
+      <div class="stack-item c-sql"><span class="ico">SQL</span><span class="label">SQL</span><span class="tooltip">PostgreSQL · MySQL</span></div>
+      <div class="stack-item c-red"><span class="ico">G</span><span class="label">Git</span><span class="tooltip">Version control</span></div>
+      <div class="stack-item c-pink"><span class="ico">F</span><span class="label">Figma</span><span class="tooltip">Design + handoff</span></div>
+      <div class="stack-item c-purple"><span class="ico">⇲</span><span class="label">Responsive</span><span class="tooltip">Mobile-first</span></div>
+      <div class="stack-item c-magenta"><span class="ico">/api</span><span class="label">REST</span><span class="tooltip">API design + auth</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CONTACT ============== -->
+<section id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-side reveal">
+        <span class="kicker"><span class="k-num">05</span> Contacto</span>
+        <h2 id="contact-title">¿Tienes una <em style="font-style:normal;background:linear-gradient(110deg,var(--cyan),var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent;">idea</em>?<br>Hablemos.</h2>
+        <p class="lead">Estoy abierto a proyectos freelance, colaboraciones y oportunidades full-time. Tiempo de respuesta habitual: <strong style="color:var(--cyan);">menos de 24h</strong>.</p>
+
+        <div class="contact-links">
+          <a href="mailto:hola@brunorodriguez.dev">
+            <span class="ic">@ Email</span>
+            <span class="v">bruno.rf0303@hotmail.com
+</span>
+            <span class="arrow">↗</span>
+          </a>
+          <a href="https://instagram.com/brunorodriguez.dev" target="_blank" rel="noopener">
+            <span class="ic">◎ Instagram</span>
+            <span class="v">@brunorodriguez.dev</span>
+            <span class="arrow">↗</span>
+          </a>
+          <a href="https://wa.me/59892957287" target="_blank" rel="noopener">
+            <span class="ic">✦ WhatsApp</span>
+            <span class="v">+598 92 957 287</span>
+            <span class="arrow">↗</span>
+          </a>
+          <!-- LinkedIn: oculto temporalmente. Quita el comentario para reactivar.
+          <a href="https://linkedin.com" target="_blank" rel="noopener">
+            <span class="ic">in LinkedIn</span>
+            <span class="v">in/bruno-rodriguez-dev</span>
+            <span class="arrow">↗</span>
+          </a>
+          -->
+        </div>
+      </div>
+
+      <form id="contact-form" class="contact-form reveal" data-delay="1" novalidate>
+        <div class="form-head">
+          <span>// new_message.txt</span>
+          <span class="live">Endpoint live</span>
+        </div>
+
+        <div class="field">
+          <label for="f-name">Nombre</label>
+          <input id="f-name" type="text" autocomplete="name" required>
+          <span class="field-meta">01</span>
+        </div>
+
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" type="email" autocomplete="email" required>
+          <span class="field-meta">02</span>
+        </div>
+
+        <div class="field">
+          <label for="f-msg">Mensaje</label>
+          <textarea id="f-msg" rows="4" required></textarea>
+          <span class="field-meta">03</span>
+        </div>
+
+        <button type="submit" class="submit-btn" data-state="default">
+          <span class="label-default">Enviar mensaje <span aria-hidden="true">→</span></span>
+          <span class="label-loading">Transmitiendo…</span>
+          <span class="label-done">✓ Mensaje enviado</span>
+          <span class="progress"></span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div>
+    Diseñado y desarrollado por
+    <a href="#top" class="name" data-easter title="Pssst… haz click">Bruno Rodriguez</a>
+    © 2026
+  </div>
+  <div class="right">
+    <span class="uptime">SYS_UPTIME <b>● 100%</b></span>
+    <span>BUILD&nbsp;v2.6.0</span>
+  </div>
+</footer>
+
+<!-- matrix easter egg overlay -->
+<div id="matrix-overlay" aria-hidden="true"><canvas></canvas></div>
+
+<script src="script.js"></script>
+</body>
+</html>
