@@ -773,7 +773,7 @@ section {
   font-family: var(--font-mono);
   font-size: clamp(15px, 1.6vw, 20px);
   color: var(--text);
-  margin-top: -14px;
+  margin-top: 20px;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -1909,7 +1909,7 @@ body.menu-open { overflow: hidden; }
   /* hero */
   .hero { min-height: auto; }
   .hero-name { font-size: clamp(64px, 18vw, 110px); }
-  .hero-typer { font-size: 14px; margin-top: -4px; gap: 8px; }
+  .hero-typer { font-size: 14px; margin-top: 12px; gap: 8px; }
   .hero-typer .role { min-width: auto; }
   .hero-bio { font-size: 13px; max-width: none; }
   .hero-bio-block { margin-top: 24px; }
