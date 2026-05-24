@@ -674,9 +674,9 @@ section {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(56px, 11vw, 168px);
-  line-height: .92;
+  line-height: 0; /* kills the phantom whitespace-node line box */
   letter-spacing: -.045em;
-  margin: 16px 0 -14px;
+  margin: 16px 0 0;
 }
 
 /* Bio block with left vertical accent — connects copy to the system */
@@ -699,6 +699,8 @@ section {
 .hero-name .line {
   display: block;
   overflow: hidden;
+  white-space: nowrap; /* prevents "_" from wrapping to a second line at large font-sizes */
+  line-height: .92; /* restored here so glyphs render correctly */
 }
 .hero-name .line span {
   display: inline-block;
@@ -771,7 +773,7 @@ section {
   font-family: var(--font-mono);
   font-size: clamp(15px, 1.6vw, 20px);
   color: var(--text);
-  margin-top: 6px;
+  margin-top: -14px;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -1907,7 +1909,7 @@ body.menu-open { overflow: hidden; }
   /* hero */
   .hero { min-height: auto; }
   .hero-name { font-size: clamp(64px, 18vw, 110px); }
-  .hero-typer { font-size: 14px; margin-top: 6px; gap: 8px; }
+  .hero-typer { font-size: 14px; margin-top: -4px; gap: 8px; }
   .hero-typer .role { min-width: auto; }
   .hero-bio { font-size: 13px; max-width: none; }
   .hero-bio-block { margin-top: 24px; }
