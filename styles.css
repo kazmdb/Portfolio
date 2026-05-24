@@ -1590,12 +1590,19 @@ section {
 .submit-btn:hover { box-shadow: 0 0 30px var(--cyan-glow); border-color: var(--magenta); }
 .submit-btn[data-state="loading"] { color: var(--cyan); pointer-events: none; }
 .submit-btn[data-state="loading"] .label-default,
-.submit-btn[data-state="loading"] .label-done { display: none; }
+.submit-btn[data-state="loading"] .label-done,
+.submit-btn[data-state="loading"] .label-error { display: none; }
 .submit-btn[data-state="default"] .label-loading,
-.submit-btn[data-state="default"] .label-done { display: none; }
+.submit-btn[data-state="default"] .label-done,
+.submit-btn[data-state="default"] .label-error { display: none; }
 .submit-btn[data-state="done"] { color: var(--green); border-color: var(--green); background: rgba(74,222,128,.08); }
 .submit-btn[data-state="done"] .label-default,
-.submit-btn[data-state="done"] .label-loading { display: none; }
+.submit-btn[data-state="done"] .label-loading,
+.submit-btn[data-state="done"] .label-error { display: none; }
+.submit-btn[data-state="error"] { color: var(--magenta); border-color: var(--magenta); background: rgba(255,0,128,.06); pointer-events: none; }
+.submit-btn[data-state="error"] .label-default,
+.submit-btn[data-state="error"] .label-loading,
+.submit-btn[data-state="error"] .label-done { display: none; }
 .submit-btn .progress {
   position: absolute;
   bottom: 0; left: 0;

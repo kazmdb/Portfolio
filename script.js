@@ -297,21 +297,64 @@
     });
   });
 
-  /* ---------- CONTACT FORM SUBMIT ---------- */
+  /* ---------- CONTACT FORM SUBMIT ----------
+     Servicio: Web3Forms (https://web3forms.com)
+     Plan gratuito: 250 envíos/mes, sin backend, sin redirección.
+     Pasos para activar:
+       1. Ir a https://web3forms.com
+       2. Ingresar tu email (bruno.rf0303@hotmail.com) → recibís la access key
+       3. Reemplazar el valor de WEB3FORMS_KEY con esa clave
+  --------------------------------------------------------- */
+  const WEB3FORMS_KEY = 'TU_ACCESS_KEY_AQUI'; // ← reemplazar
+
   const form = document.getElementById('contact-form');
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const btn = form.querySelector('.submit-btn');
+
+      const btn   = form.querySelector('.submit-btn');
+      const name  = document.getElementById('f-name').value.trim();
+      const email = document.getElementById('f-email').value.trim();
+      const msg   = document.getElementById('f-msg').value.trim();
+
+      if (!name || !email || !msg) return;
+
       btn.dataset.state = 'loading';
-      setTimeout(() => {
-        btn.dataset.state = 'done';
-        setTimeout(() => {
-          btn.dataset.state = 'default';
-          form.reset();
-          form.querySelectorAll('.field').forEach(f => f.classList.remove('filled', 'focused'));
-        }, 2200);
-      }, 1500);
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            access_key:  WEB3FORMS_KEY,
+            subject:     `Nuevo mensaje de ${name} — Portfolio`,
+            from_name:   name,
+            name,
+            email,
+            message:     msg,
+            botcheck:    ''           // honeypot anti-spam
+          })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          btn.dataset.state = 'done';
+          setTimeout(() => {
+            btn.dataset.state = 'default';
+            form.reset();
+            form.querySelectorAll('.field').forEach(f =>
+              f.classList.remove('filled', 'focused')
+            );
+          }, 2500);
+        } else {
+          throw new Error(data.message || 'Web3Forms error');
+        }
+      } catch (err) {
+        console.error('[contact form]', err);
+        btn.dataset.state = 'error';
+        setTimeout(() => { btn.dataset.state = 'default'; }, 3500);
+      }
     });
   }
 
